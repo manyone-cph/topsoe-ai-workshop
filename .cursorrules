@@ -1,5 +1,41 @@
-The goal of this project is to write articles for Topsoe, a Global leader in catalysis and process technology driving optimal performance within chemical processing, hydroprocessing and emissions management.
-We will have all pages from the Topsoe.com indexed in the project. Overall sections are Knowledge & Insights, Solutions, News & Media, About, Careers and Investors. Each section has sub sections and the sub section have their own pages/articles
-We will also have many resent Topsoe SoMe posts indexed in the project.
-We will have an overall folder of personas that all new articles and SoMe posts are to respect.
-We will also have folders for competitor homepages and articles and SoMe indexed in the project.
+# Content Analysis Rules
+
+# General Content Rules
+When analysing the content of the files, only analyse their content and not the technical formatting and details of the file.
+Focus on the actual text, messaging, and narrative flow rather than HTML/markdown syntax.
+When analysing an entire file, split the feedback into sections and return changes for each section individually rather than the entire file change at once.
+
+# Editorial Guidelines
+1. Maintain consistent terminology across related content
+2. Preserve the original technical accuracy of process descriptions
+3. Keep industry-specific terms unchanged
+4. Respect the existing tone of voice in the content
+5. Preserve product names and trademarks exactly as written
+6. Maintain existing heading hierarchy and structure
+
+# Language Processing
+1. Treat content in different languages separately
+2. Preserve technical terms in their original form
+3. Keep units of measurement in their original format
+4. Maintain existing acronyms and abbreviations
+
+# Content Structure
+1. Preserve the existing metadata structure (title, url, etc.)
+2. Maintain the original formatting of dates
+3. Keep bulleted and numbered lists in their original structure
+4. Preserve quote attributions and speaker names as written
+
+# Special Elements
+1. Preserve product codes and catalog numbers exactly as written
+2. Maintain existing contact information formatting
+3. Keep technical specifications in their original format
+4. Preserve existing hyperlink text
+
+# Ignore Elements
+1. Skip processing of HubSpot Call-to-Action Code blocks
+2. Ignore navigation menu structures
+3. Skip processing of tracking codes and scripts
+4. Ignore duplicate navigation elements in different languages
+
+# Creating diagrams
+1. If asked to create a flow chart or a mind map or org chart etc. use correct Mermaid syntax. Also don't use colors in flow chart diagrams and make sure that the diagram is comprehensive and provides unique insights into relationships between elements.
