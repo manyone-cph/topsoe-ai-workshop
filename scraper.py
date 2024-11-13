@@ -112,43 +112,54 @@ class TopsoeScraper:
             content_parts.append(f"*Published: {date.get_text().strip()}*\n")
 
         def process_text_styling(element):
-            """Process inline text styling"""
-            text = ''
-            for child in element.children:
-                if child.name == 'strong' or child.name == 'b':
-                    text += f"**{child.get_text().strip()}**"
-                elif child.name == 'em' or child.name == 'i':
-                    text += f"*{child.get_text().strip()}*"
-                elif child.name == 'a':
-                    text += f"[{child.get_text().strip()}]({child.get('href', '')})"
-                elif child.name is None:
-                    text += child.string.strip() if child.string else ''
-            return text or element.get_text().strip()
+            """Process inline text styling recursively"""
+            if isinstance(element, str):
+                return element.strip()
+            
+            if hasattr(element, 'contents'):
+                text = ''
+                for child in element.contents:
+                    if isinstance(child, str):
+                        text += child.strip()
+                    else:
+                        # Handle nested elements
+                        child_text = process_text_styling(child)
+                        if child.name in ['strong', 'b']:
+                            text += f"**{child_text}**"
+                        elif child.name in ['em', 'i']:
+                            text += f"*{child_text}*"
+                        elif child.name == 'a':
+                            href = child.get('href', '')
+                            text += f"[{child_text}]({href})"
+                        else:
+                            text += child_text
+                return text
+            return ''
 
         # Extract main content with proper formatting
         for element in article.find_all(['p', 'h2', 'h3', 'h4', 'ul', 'ol', 'blockquote']):
             if element.parent.name in ['aside', 'nav', 'footer']:
                 continue
             
-            text = process_text_styling(element)
-            
-            if text:
-                if element.name == 'h2':
-                    content_parts.append(f"\n## {text}\n")
-                elif element.name == 'h3':
-                    content_parts.append(f"\n### {text}\n")
-                elif element.name == 'h4':
-                    content_parts.append(f"\n#### {text}\n")
-                elif element.name in ['ul', 'ol']:
-                    items = []
-                    for li in element.find_all('li'):
-                        item_text = process_text_styling(li)
-                        items.append(f"- {item_text}")
-                    content_parts.append("\n" + "\n".join(items) + "\n")
-                elif element.name == 'blockquote':
-                    content_parts.append(f"\n> {text}\n")
-                else:  # paragraphs
-                    content_parts.append(f"\n{text}\n")
+            if element.name in ['ul', 'ol']:
+                items = []
+                for li in element.find_all('li'):
+                    item_text = process_text_styling(li)
+                    items.append(f"- {item_text}")
+                content_parts.append("\n" + "\n".join(items) + "\n")
+            else:
+                text = process_text_styling(element)
+                if text:
+                    if element.name == 'h2':
+                        content_parts.append(f"\n## {text}\n")
+                    elif element.name == 'h3':
+                        content_parts.append(f"\n### {text}\n")
+                    elif element.name == 'h4':
+                        content_parts.append(f"\n#### {text}\n")
+                    elif element.name == 'blockquote':
+                        content_parts.append(f"\n> {text}\n")
+                    else:  # paragraphs
+                        content_parts.append(f"\n{text}\n")
 
         # Join all parts and clean up spacing
         content = "\n".join(content_parts)
