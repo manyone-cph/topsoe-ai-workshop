@@ -1,0 +1,57 @@
+---
+title: SAF | References for SAF report
+url: https://www.topsoe.com/sustainable-aviation-fuel/saf-study-references#download-popup-u4m-interview-header
+---
+
+REFERENCES
+
+- U.S. Energy Information Administration, International Energy Outlook 2019,[https://www.eia.gov/outlooks/ieo/pdf/ieo2019.pdf](https://www.eia.gov/outlooks/ieo/pdf/ieo2019.pdf)
+- IEA (2022), Aviation, IEA, Paris[https://www.iea.org/reports/aviation](https://www.iea.org/reports/aviation), License: CC BY 4.0
+- European Union Aviation Safety Agency (EASA), European Aviation Environmental Report 2022[https://www.easa.europa.eu/eco/sites/default/files/2022-09/220723_EASA%20EAER%202022.pdf](https://www.easa.europa.eu/eco/sites/default/files/2022-09/220723_EASA%20EAER%202022.pdf)
+- [https://www.iata.org/en/pressroom/2022-releases/2022-12-07-01/](https://www.iata.org/en/pressroom/2022-releases/2022-12-07-01/)
+- [https://www.iata.org/en/pressroom/2022-releases/2022-12-07-01/](https://www.iata.org/en/pressroom/2022-releases/2022-12-07-01/)
+- [https://www.iata.org/en/programs/environment/sustainable-aviation-fuels/](https://www.iata.org/en/programs/environment/sustainable-aviation-fuels/)
+- “The contribution of global aviation to anthropogenic climate forcing for 2000 to 2018”, Lee et al, 2020
+- [https://www.iata.org/en/iata-repository/publications/economic-reports/air-passenger-monthly-analysis/](https://www.iata.org/en/iata-repository/publications/economic-reports/air-passenger-monthly-analysis/)
+- “Traveler numbers reach new heights”, IATA press release 6 September 2018
+- [https://www.theglobaleconomy.com/rankings/jet_fuel_consumption/](https://www.theglobaleconomy.com/rankings/jet_fuel_consumption/)
+- Climate Watch, the World Resources Institute
+- “The unequal distribution of household carbon footprints in Europe and its link to sustainability”, D. Ivanova & R. Wood 2020
+- [https://ourworldindata.org/emissions-by-sector](https://ourworldindata.org/emissions-by-sector)
+- “The contribution of global aviation to anthropogenic climate forcing for 2000 to 2018”, Lee et al, 2020
+- “Pathway to Net Zero”, DNV 2021
+- [https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/](https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/)
+- “Pathway to Net Zero”, DNV 2021
+- “Estimating sustainable aviation fuel feedstock availability to meet growing European Union demand”, International Council on Clean Transportation, O’Malley et al, 2021
+- [https://www.concawe.eu/wp-content/uploads/Feedstocks-1.pdf](https://www.concawe.eu/wp-content/uploads/Feedstocks-1.pdf)
+- [https://www.itf-oecd.org/sites/default/files/docs/lessons-learned-itf-transport-outlook.pdf](https://www.itf-oecd.org/sites/default/files/docs/lessons-learned-itf-transport-outlook.pdf)
+- “Hydroprocessing of renewable feedstocks”, Topsoe Academy Seminar, May 30 – June 1, 2022
+- Figures from[https://www.statista.com/statistics/1269980/sustainable-aviation-fuel-production-capacity-worldwide/](https://www.statista.com/statistics/1269980/sustainable-aviation-fuel-production-capacity-worldwide/),[https://www.sustainableaviation.co.uk/wp-content/uploads/2020/02/SustainableAviation_FuelReport_20200231.pdf](https://www.sustainableaviation.co.uk/wp-content/uploads/2020/02/SustainableAviation_FuelReport_20200231.pdf), and others
+- [https://www.spglobal.com/commodityinsights/en/market-insights/blogs/oil/032222-sustainable-aviation-fuel-saf-2050](https://www.spglobal.com/commodityinsights/en/market-insights/blogs/oil/032222-sustainable-aviation-fuel-saf-2050)
+- [https://www.iata.org/en/pressroom/2022-releases/2022-06-21-02/](https://www.iata.org/en/pressroom/2022-releases/2022-06-21-02/)
+- [https://www.argusmedia.com/en/news/2285785-viewpoint-hvo-saf-demand-to-outstrip-supply-in-2022](https://www.argusmedia.com/en/news/2285785-viewpoint-hvo-saf-demand-to-outstrip-supply-in-2022)
+- [https://www.biofuelsdigest.com/bdigest/2022/11/23/study-forecasts-global-saf-market-to-grow-at-a-cagr-of-26-2-in-2022-2050/](https://www.biofuelsdigest.com/bdigest/2022/11/23/study-forecasts-global-saf-market-to-grow-at-a-cagr-of-26-2-in-2022-2050/)
+- [https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/](https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/)
+- Dataset adapted from “Clean Skies for Tomorrow”, World Economic Forum
+- [https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/](https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/)
+- [https://www.bain.com/insights/will-plans-to-decarbonize-the-aviation-industry-fly/?share-date=13-12-2022](https://www.bain.com/insights/will-plans-to-decarbonize-the-aviation-industry-fly/?share-date=13-12-2022). Note the same report suggests just 20% of SAF demand will be met by 2050, although this is an outlier.
+- [https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/](https://about.bnef.com/blog/2022-sustainable-aviation-fuel-outlook/)
+- [https://www.spglobal.com/commodityinsights/en/market-insights/blogs/oil/032222-sustainable-aviation-fuel-saf-2050](https://www.spglobal.com/commodityinsights/en/market-insights/blogs/oil/032222-sustainable-aviation-fuel-saf-2050)
+- [https://www.easa.europa.eu/en/light/topics/fit-55-and-refueleu-aviation](https://www.easa.europa.eu/en/light/topics/fit-55-and-refueleu-aviation)
+- SAF Grand Challenge Roadmap,[https://www.energy.gov/sites/default/files/2022-09/beto-saf-gc-roadmap-report-sept-2022.pdf](https://www.energy.gov/sites/default/files/2022-09/beto-saf-gc-roadmap-report-sept-2022.pdf)
+- Presentation by Joshua Heyne, Washington State University, at Topsoe SAF Summit Dec 2022
+- “ASTM Designation D1655-19: Standard Specification for Aviation Turbine Fuels”
+- “ATSM D7566: Standard Specification for Aviation Turbine Fuel Containing Synthesized Hydrocarbons”
+- “ASTM D4054: Standard Practice for Evaluation of New Aviation Turbine Fuels and Fuel Additives”
+- Rumizen, Mark A., “Qualification of Alternative Jet Fuels,” FIER, 2021, doi:10.3389/fenrg.2021.760713
+- The U.S: Environmental Protection Agency provides an overview here:[Overview for Renewable Fuel Standard | US EPA](https://www.epa.gov/renewable-fuel-standard-program/overview-renewable-fuel-standard)
+- The Parliament's position can be found here:[https://www.europarl.europa.eu/doceo/document/TA-9-2022-0297_EN.html](https://www.europarl.europa.eu/doceo/document/TA-9-2022-0297_EN.html)While the Council position is available here:[https://www.consilium.europa.eu/media/56725/st09805-xx22.pdf](https://www.consilium.europa.eu/media/56725/st09805-xx22.pdf)
+- [https://www.europarl.europa.eu/RegData/etudes/BRIE/2022/698900/EPRS_BRI(2022)698900_EN.pdf](https://www.europarl.europa.eu/RegData/etudes/BRIE/2022/698900/EPRS_BRI(2022)698900_EN.pdf)
+- [https://www.forbes.com/sites/davidbressan/2022/06/05/carbon-dioxide-peaked-in-2022-at-levels-not-seen-for-millions-of-years/](https://www.forbes.com/sites/davidbressan/2022/06/05/carbon-dioxide-peaked-in-2022-at-levels-not-seen-for-millions-of-years/)
+- [https://www.statista.com/statistics/1266963/amount-of-fuel-consumed-by-ships-worldwide-by-fuel-type/](https://www.statista.com/statistics/1266963/amount-of-fuel-consumed-by-ships-worldwide-by-fuel-type/)
+- [http://www.citylogistics.info/research/road-transport-responsible-for-50-percent-of-oil-consumption-worldwide/](http://www.citylogistics.info/research/road-transport-responsible-for-50-percent-of-oil-consumption-worldwide/)
+- “Clean Skies for Tomorrow”, WEF report 2020
+- [https://www.ainonline.com/aviation-news/business-aviation/2021-02-25/saf-track-1b-gallons-annual-production-2025](https://www.ainonline.com/aviation-news/business-aviation/2021-02-25/saf-track-1b-gallons-annual-production-2025)
+- [https://www.iata.org/contentassets/d13875e9ed784f75bac90f000760e998/fact-sheet---us-and-eu-saf-policies.pdf](https://www.iata.org/contentassets/d13875e9ed784f75bac90f000760e998/fact-sheet---us-and-eu-saf-policies.pdf)
+- [https://www.ipcc.ch/sr15/](https://www.ipcc.ch/sr15/)
+- CO2captured from activities listed under Annex I of Directive 2003/87/EC

@@ -5,11 +5,11 @@ from urllib.parse import urljoin, urlparse
 import time
 from typing import Set, List
 
-class TopsoeScraper:
+class Scraper:
     def __init__(self):
         self.base_url = "https://www.topsoe.com"
         self.visited_urls: Set[str] = set()
-        self.output_dir = "topsoe_content"
+        self.output_dir = "topsoe_scrape"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
@@ -208,7 +208,7 @@ class TopsoeScraper:
             urls_to_scrape.extend([u for u in new_urls if u not in self.visited_urls])
 
 def main():
-    scraper = TopsoeScraper()
+    scraper = Scraper()
     scraper.start_scraping()
 
 if __name__ == "__main__":
