@@ -2,37 +2,17 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
-import markdown
 import time
-from typing import Set, Dict, List
+from typing import Set, List
 
 class TopsoeScraper:
     def __init__(self):
         self.base_url = "https://www.topsoe.com"
         self.visited_urls: Set[str] = set()
-        self.main_sections = {
-            "knowledge-insights": "Knowledge & Insights",
-            "solutions": "Solutions",
-            "news-media": "News & Media",
-            "about": "About",
-            "careers": "Careers",
-            "investors": "Investors"
-        }
         self.output_dir = "topsoe_content"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
-
-    def create_folder_structure(self):
-        """Create the initial folder structure"""
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir)
-        
-        # Create main section folders
-        for section in self.main_sections.values():
-            section_path = os.path.join(self.output_dir, section)
-            if not os.path.exists(section_path):
-                os.makedirs(section_path)
 
     def clean_filename(self, filename: str) -> str:
         """Convert URL or title to valid filename"""
@@ -46,25 +26,23 @@ class TopsoeScraper:
         parsed_url = urlparse(url)
         path_parts = [p for p in parsed_url.path.split('/') if p]
 
-        # Determine the section and create folder path
-        section = None
-        for section_key, section_name in self.main_sections.items():
-            if section_key in path_parts:
-                section = section_name
-                break
+        # Handle root URL
+        if not path_parts:
+            folder_path = self.output_dir
+            filename = "index.md"
+        else:
+            # Create folder path based on URL structure
+            folder_path = self.output_dir
+            for part in path_parts[:-1]:  # All parts except the last one
+                folder_path = os.path.join(folder_path, self.clean_filename(part))
+            
+            # Use last part of path or 'index' for filename
+            filename = f"{self.clean_filename(path_parts[-1] or 'index')}.md"
 
-        if not section:
-            section = "Other"
+        # Create all necessary directories
+        os.makedirs(folder_path, exist_ok=True)
 
-        # Create folder path
-        folder_path = os.path.join(self.output_dir, section)
-        for part in path_parts[1:-1]:  # Skip the section name and filename
-            folder_path = os.path.join(folder_path, self.clean_filename(part))
-            if not os.path.exists(folder_path):
-                os.makedirs(folder_path)
-
-        # Create markdown file
-        filename = f"{self.clean_filename(title or path_parts[-1])}.md"
+        # Create full file path
         file_path = os.path.join(folder_path, filename)
 
         # Save content with metadata
@@ -72,7 +50,6 @@ class TopsoeScraper:
             f.write(f"---\n")
             f.write(f"title: {title}\n")
             f.write(f"url: {url}\n")
-            f.write(f"section: {section}\n")
             f.write(f"---\n\n")
             f.write(content)
 
@@ -111,17 +88,75 @@ class TopsoeScraper:
             return []
 
     def extract_main_content(self, soup: BeautifulSoup) -> str:
-        """Extract the main content from the page"""
+        """Extract and structure the main content from the page"""
         # Remove unwanted elements
-        for element in soup.find_all(['script', 'style', 'nav', 'footer']):
+        for element in soup.find_all(['script', 'style', 'nav', 'footer', 'form', 'aside', 'comments']):
             element.decompose()
 
-        # Find main content area (adjust selectors based on Topsoe's HTML structure)
-        main_content = soup.find('main') or soup.find('article') or soup.find('div', class_='content')
+        # Try to find the main article content
+        article = soup.find('article') or soup.find('main') or soup.find('div', class_='content')
         
-        if main_content:
-            return main_content.get_text(strip=True)
-        return soup.get_text(strip=True)
+        if not article:
+            return ""
+
+        content_parts = []
+        
+        # Extract title
+        title = soup.find('h1')
+        if title:
+            content_parts.append(f"# {title.get_text().strip()}\n")
+
+        # Extract date if available
+        date = soup.find('time') or soup.find(class_=['date', 'published', 'post-date'])
+        if date:
+            content_parts.append(f"*Published: {date.get_text().strip()}*\n")
+
+        def process_text_styling(element):
+            """Process inline text styling"""
+            text = ''
+            for child in element.children:
+                if child.name == 'strong' or child.name == 'b':
+                    text += f"**{child.get_text().strip()}**"
+                elif child.name == 'em' or child.name == 'i':
+                    text += f"*{child.get_text().strip()}*"
+                elif child.name == 'a':
+                    text += f"[{child.get_text().strip()}]({child.get('href', '')})"
+                elif child.name is None:
+                    text += child.string.strip() if child.string else ''
+            return text or element.get_text().strip()
+
+        # Extract main content with proper formatting
+        for element in article.find_all(['p', 'h2', 'h3', 'h4', 'ul', 'ol', 'blockquote']):
+            if element.parent.name in ['aside', 'nav', 'footer']:
+                continue
+            
+            text = process_text_styling(element)
+            
+            if text:
+                if element.name == 'h2':
+                    content_parts.append(f"\n## {text}\n")
+                elif element.name == 'h3':
+                    content_parts.append(f"\n### {text}\n")
+                elif element.name == 'h4':
+                    content_parts.append(f"\n#### {text}\n")
+                elif element.name in ['ul', 'ol']:
+                    items = []
+                    for li in element.find_all('li'):
+                        item_text = process_text_styling(li)
+                        items.append(f"- {item_text}")
+                    content_parts.append("\n" + "\n".join(items) + "\n")
+                elif element.name == 'blockquote':
+                    content_parts.append(f"\n> {text}\n")
+                else:  # paragraphs
+                    content_parts.append(f"\n{text}\n")
+
+        # Join all parts and clean up spacing
+        content = "\n".join(content_parts)
+        
+        # Clean up excessive newlines while preserving paragraph breaks
+        content = "\n\n".join(para.strip() for para in content.split('\n\n') if para.strip())
+        
+        return content
 
     def should_follow_link(self, url: str) -> bool:
         """Determine if a link should be followed"""
@@ -129,14 +164,31 @@ class TopsoeScraper:
             return False
         
         parsed_url = urlparse(url)
-        path_parts = parsed_url.path.split('/')
         
-        # Check if URL is in main sections
-        return any(section in parsed_url.path for section in self.main_sections.keys())
+        # Skip certain paths that aren't articles
+        skip_paths = [
+            '/search', 
+            '/login',
+            '/contact',
+            '/sitemap',
+            '/tags',
+            '/categories'
+        ]
+        
+        if any(path in parsed_url.path for path in skip_paths):
+            return False
+        
+        # Skip URLs with query parameters
+        if parsed_url.query:
+            return False
+        
+        return True
 
     def start_scraping(self):
         """Start the scraping process"""
-        self.create_folder_structure()
+        # Create base output directory
+        os.makedirs(self.output_dir, exist_ok=True)
+        
         urls_to_scrape = [self.base_url]
 
         while urls_to_scrape:
